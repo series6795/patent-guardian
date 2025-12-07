@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+# 특허관리 시스템 (Patent Management System)
 
-## Project info
+특허 출원, 등록, 관리를 위한 통합 특허관리 시스템입니다.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 주요 기능
 
-## How can I edit this code?
+- **대시보드**: 특허 현황을 한눈에 파악 (출원중, 등록, 거절, 만료)
+- **특허 목록**: 검색 및 필터링 (상태별, 분류별)
+- **특허 등록**: 새 특허 정보 입력
+- **특허 관리**: 상세 보기, 수정, 삭제
 
-There are several ways of editing your application.
+## 기술 스택
 
-**Use Lovable**
+- **Frontend**: React 18, TypeScript
+- **Styling**: Tailwind CSS, shadcn/ui
+- **Build Tool**: Vite
+- **Form**: React Hook Form, Zod
+- **State**: TanStack Query
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 로컬 환경 실행 방법
 
-Changes made via Lovable will be committed automatically to this repo.
+### 1. 사전 요구사항
 
-**Use your preferred IDE**
+- Node.js 18.x 이상
+- npm 또는 bun
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 2. 저장소 클론
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### 3. 의존성 설치
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# npm 사용 시
+npm install
 
-**Use GitHub Codespaces**
+# 또는 bun 사용 시
+bun install
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 4. 개발 서버 실행
 
-## What technologies are used for this project?
+```bash
+# npm 사용 시
+npm run dev
 
-This project is built with:
+# 또는 bun 사용 시
+bun run dev
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 5. 브라우저에서 확인
 
-## How can I deploy this project?
+개발 서버가 실행되면 브라우저에서 다음 주소로 접속합니다:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```
+http://localhost:8080
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 프로젝트 구조
 
-Yes, you can!
+```
+src/
+├── components/
+│   ├── dashboard/          # 대시보드 컴포넌트
+│   │   ├── Dashboard.tsx
+│   │   └── StatCard.tsx
+│   ├── layout/             # 레이아웃 컴포넌트
+│   │   └── Header.tsx
+│   ├── patent/             # 특허 관련 컴포넌트
+│   │   ├── PatentCard.tsx
+│   │   ├── PatentDialog.tsx
+│   │   ├── PatentForm.tsx
+│   │   └── PatentList.tsx
+│   └── ui/                 # shadcn/ui 컴포넌트
+├── data/
+│   └── samplePatents.ts    # 샘플 데이터
+├── hooks/                  # 커스텀 훅
+├── lib/                    # 유틸리티 함수
+├── pages/                  # 페이지 컴포넌트
+│   ├── Index.tsx
+│   └── NotFound.tsx
+├── types/
+│   └── patent.ts           # 타입 정의
+├── App.tsx                 # 앱 라우팅
+├── index.css               # 전역 스타일 (디자인 시스템)
+└── main.tsx                # 앱 진입점
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 빌드
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+프로덕션 빌드를 생성하려면:
+
+```bash
+npm run build
+```
+
+빌드된 파일은 `dist/` 폴더에 생성됩니다.
+
+## 배포
+
+Lovable에서 직접 배포하려면:
+1. Lovable 에디터에서 **Publish** 버튼 클릭
+2. **Share → Publish** 선택
+
+## 라이선스
+
+MIT License
